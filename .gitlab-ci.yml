@@ -4,7 +4,7 @@ stages:
 
 build wicket-static:
     stage: compile
-    image: maven:3.8.5-openjdk-8
+    image: maven:3.8.5-amazoncorretto-11
     script:
         - mvn clean install package
     artifacts:
