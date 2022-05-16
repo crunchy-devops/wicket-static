@@ -1,0 +1,28 @@
+stages:
+    - compile
+    - docker_build
+
+build wicket-static:
+    stage: compile
+    image: maven:3.8.5-openjdk-8
+    script:
+        - mvn clean install package
+    artifacts:
+        paths:
+            - /builds
+
+build docker images:
+    stage: docker_build
+    script:
+        - apk update
+        - apk add --no-cache bash
+        - find / -name "*.war" -print 2>/dev/null
+
+
+
+
+        
+
+
+      
+
