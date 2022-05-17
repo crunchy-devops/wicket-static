@@ -18,7 +18,7 @@ build docker images:
         - apk add --no-cache bash
         - chmod +x start-container.sh
         - cp /builds/hmeftah/wicket-static/target/wicket-static-1.0-SNAPSHOT.war .
-        - docker build -t wicket-app -f Dockerfile-jetty .
+        - docker build -t wicket-app  .
         - ./start-container.sh
 
 
