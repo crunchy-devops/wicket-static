@@ -1,6 +1,13 @@
 stages:
     - compile
+    - checkstyle
     - docker_build
+
+cache:
+    key: mavenrepo
+    paths:
+        - ./.m2/repository/
+
 
 build wicket-static:
     stage: compile
@@ -10,6 +17,12 @@ build wicket-static:
     artifacts:
         paths:
             - /builds
+
+build checkstyle:
+    stage: checkstyle
+    image: maven:3.8.5-amazoncorretto-11
+    script:
+        - mvn checkstyle:check
 
 build docker images:
     stage: docker_build
