@@ -22,7 +22,7 @@ build checkstyle:
     stage: checkstyle
     image: maven:3.8.5-amazoncorretto-11
     script:
-        - mvn checkstyle:check
+        - mvn checkstyle:checkstyle
 
 build docker images:
     stage: docker_build
